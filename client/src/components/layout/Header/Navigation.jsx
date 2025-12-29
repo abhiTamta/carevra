@@ -18,7 +18,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { Button } from "../../button";
+import { Button } from "../../ui/button";
 import {
   Car,
   Dog,
@@ -60,33 +60,83 @@ const Navigation = () => {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={"uppercase font-semibold"}>Pet Services</NavigationMenuTrigger>
+            <NavigationMenuTrigger className={"uppercase font-semibold"}>
+              Pet Services
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[200px] gap-4">
+              <ul className="grid w-50 gap-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/vet" className="flex flex-row items-center gap-2"><Stethoscope className="w-4 h-4" />Vet on Call</Link>
+                    <Link
+                      href="/services/vet"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Stethoscope className="w-4 h-4" />
+                      Vet on Call
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/vaccination" className="flex flex-row items-center gap-2"><Syringe className="w-4 h-4" />Vaccination</Link>
+                    <Link
+                      href="/services/vaccination"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Syringe className="w-4 h-4" />
+                      Vaccination
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/grooming" className="flex flex-row items-center gap-2"><Scissors className="w-4 h-4" />Grooming</Link>
+                    <Link
+                      href="/services/grooming"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Scissors className="w-4 h-4" />
+                      Grooming
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/boarding" className="flex flex-row items-center gap-2"><Home className="w-4 h-4" />Boarding</Link>
+                    <Link
+                      href="/services/boarding"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Home className="w-4 h-4" />
+                      Boarding
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/daycare" className="flex flex-row items-center gap-2"><Dog className="w-4 h-4" />Day Care</Link>
+                    <Link
+                      href="/services/daycare"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Dog className="w-4 h-4" />
+                      Day Care
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/training" className="flex flex-row items-center gap-2"><HeartPulse className="w-4 h-4" />Training</Link>
+                    <Link
+                      href="/services/training"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <HeartPulse className="w-4 h-4" />
+                      Training
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/pettransport" className="flex flex-row items-center gap-2"><Car className="w-4 h-4" />Pet Transport</Link>
+                    <Link
+                      href="/services/pettransport"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <Car className="w-4 h-4" />
+                      Pet Transport
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <Link href="/services/insuranceassistance" className="flex flex-row items-center gap-2"><ShieldCheck className="w-4 h-4" />Insurance Assistance</Link>
+                    <Link
+                      href="/services/insuranceassistance"
+                      className="flex flex-row items-center gap-2"
+                    >
+                      <ShieldCheck className="w-4 h-4" />
+                      Insurance Assistance
+                    </Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -241,10 +291,16 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
+          <div className="px-5 mt-5 flex flex-col gap-2">
+            <Button variant="outline">Login</Button>
+            <Button variant="outline">Become a Provider</Button>
+          </div>
         </SheetContent>
       </Sheet>
-      <Button variant="">Login</Button>
-      <Button variant="outline">Sign Up</Button>
+      <div className="hidden md:block">
+        <Button className={"h-auto bg-teal-600 px-5 py-1.5 mr-3 cursor-pointer font-semibold"}>Login</Button>
+        <Button className={"h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-1.5 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"}>Become a Provider</Button>
+      </div>
     </nav>
   );
 };

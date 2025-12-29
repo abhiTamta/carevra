@@ -1,9 +1,9 @@
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/ui/layout/Header/Header";
-import TopHeader from "@/components/ui/layout/topHeader/TopHeader";
-import HomePageBanner from "@/components/ui/layout/banner/HomePageBanner";
-import Footer from "@/components/ui/layout/footer/Footer";
+import Header from "@/components/layout/Header/Header";
+import TopHeader from "@/components/layout/topHeader/TopHeader";
+import HomePageBanner from "@/components/layout/banner/HomePageBanner";
+import Footer from "@/components/layout/footer/Footer";
 
 const openSans = Open_Sans({
   subsets: ["latin"],

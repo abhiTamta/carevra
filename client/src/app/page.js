@@ -80,7 +80,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="py-16 px-6 bg-teal-50">
+      <section className="py-16 px-6 bg-teal-50">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-gray-900">
             How Carevra Works
@@ -113,11 +113,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 text-white">
+      <section className="py-20 px-6 bg-gradient-to-r from-teal-600 via-teal-500 to-teal-700 text-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-8">
-=          <div>
+          <div>
             <h2 className="text-5xl font-black">Carevra App</h2>
             <p className="text-lg mt-3 opacity-90">
               Animal care + transport booking platform in your pocket
@@ -153,18 +153,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative w-full h-[520px]">
+          <div className="relative w-full h-96 md:h-128 rounded-2xl overflow-hidden shadow-lg">
             <Image
-              src="/images/app_mockup/pet_app_ui.jpg"
+              src="/images/app/add_design.png"
               alt="Carevra App Preview"
               fill
-              className="object-contain"
             />
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <section className="py-16 px-6 bg-gradient-to-b from-teal-50 to-white">
+      <section className="py-16 px-6 bg-gradient-to-b from-teal-50 to-white">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
           {[
             {
@@ -210,9 +209,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
 
-      {/* <section className="py-16 px-6 bg-teal-600 text-white">
+      <section className="py-16 px-6 bg-teal-600 text-white">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold">Loved by Pet Owners</h2>
           <p className="text-lg mt-2 mb-8 text-teal-100">
@@ -236,9 +235,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-teal-600 text-center">
             Our Popular Services
@@ -298,9 +297,9 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <section className="py-20 px-6 bg-teal-50">
+      <section className="py-20 px-6 bg-teal-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-extrabold text-gray-900">
             Join the Future of Animal Care
@@ -313,7 +312,7 @@ export default function Home() {
             Get Started
           </button>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 }

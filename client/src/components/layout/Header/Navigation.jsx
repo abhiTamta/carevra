@@ -38,10 +38,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
+import Loginform from "@/components/login/Loginform";
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [accordionOpen, setAccordionOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="h-auto flex gap-2">
@@ -60,7 +62,9 @@ const Navigation = () => {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuTrigger className={"uppercase font-semibold"}>
+            <NavigationMenuTrigger
+              className={"uppercase font-semibold cursor-pointer"}
+            >
               Pet Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -165,7 +169,7 @@ const Navigation = () => {
             <li className="border-b px-5 py-2">
               <Link
                 href="/"
-                onClick={() => setOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className="font-semibold"
               >
                 Home
@@ -175,7 +179,7 @@ const Navigation = () => {
             <li className="border-b px-5 py-2">
               <Link
                 href="/about"
-                onClick={() => setOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className="font-semibold"
               >
                 About
@@ -205,7 +209,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/vet"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Stethoscope className="w-4 h-4" /> Vet on Call
@@ -214,7 +218,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/vaccination"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Syringe className="w-4 h-4" /> Vaccination
@@ -223,7 +227,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/grooming"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Scissors className="w-4 h-4" /> Grooming
@@ -232,7 +236,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/boarding"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Home className="w-4 h-4" /> Boarding
@@ -241,7 +245,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/daycare"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Dog className="w-4 h-4" /> Day Care
@@ -250,7 +254,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/training"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <HeartPulse className="w-4 h-4" /> Training
@@ -259,7 +263,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/pet-transport"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <Car className="w-4 h-4" /> Pet Transport
@@ -268,7 +272,7 @@ const Navigation = () => {
                       <li className="py-2 border-t">
                         <Link
                           href="/insurance"
-                          onClick={() => setOpen(false)}
+                          onClick={() => setMobileOpen(false)}
                           className="menu-link flex gap-2 items-center"
                         >
                           <ShieldCheck className="w-4 h-4" /> Insurance
@@ -284,7 +288,7 @@ const Navigation = () => {
             <li className="border-b px-5 py-2">
               <Link
                 href="/contact"
-                onClick={() => setOpen(false)}
+                onClick={() => {setMobileOpen(false) }}
                 className="font-semibold"
               >
                 Contact Us
@@ -292,15 +296,42 @@ const Navigation = () => {
             </li>
           </ul>
           <div className="px-5 mt-5 flex flex-col gap-2">
-            <Button variant="outline">Login</Button>
-            <Button variant="outline">Become a Provider</Button>
+            <Button
+              onClick={() => {setOpen(true),setMobileOpen(false)}}
+              className={
+                "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
+              }
+            >
+              Login
+            </Button>
+            <Button
+              className={
+                "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
+              }
+            >
+              Become a Provider
+            </Button>
           </div>
         </SheetContent>
       </Sheet>
       <div className="hidden md:block">
-        <Button className={"h-auto bg-teal-600 px-5 py-1.5 mr-3 cursor-pointer font-semibold"}>Login</Button>
-        <Button className={"h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-1.5 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"}>Become a Provider</Button>
+        <Button
+          onClick={() => setOpen(true)}
+          className={
+            "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
+          }
+        >
+          Login
+        </Button>
+        <Button
+          className={
+            "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
+          }
+        >
+          Become a Provider
+        </Button>
       </div>
+      <Loginform open={open} setOpen={setOpen} />
     </nav>
   );
 };

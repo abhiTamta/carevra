@@ -27,7 +27,7 @@ export default function VetOnCallPage() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-lg">
-            <Image src="/images/services/vet_on_call.jpg" alt="Vet on Call" fill className="object-cover" />
+            <Image src="/images/services/vetoncall.jpg" alt="Vet on Call" fill className="object-cover" />
           </div>
 
           <div className="text-left">

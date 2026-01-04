@@ -1,0 +1,82 @@
+"use client";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Field,
+  FieldDescription,
+  FieldGroup,
+  FieldSeparator,
+  FieldLabel,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+
+import { useState } from "react";
+
+export function LoginForm({ className, ...props }) {
+  const [crmLogin, setCrmLogin] = useState({ username: "", password: "" });
+
+  const loginFormHandler = async (event) => {
+    event.preventDefault();
+
+    // Add login logic here
+    try {
+      const response = await fetch("http://localhost:8080/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(crmLogin),
+      });
+
+      const data = await response.json(); // 👈 convert response to JSON
+
+    } catch (error) {}
+  };
+
+  return (
+    <form
+      onSubmit={loginFormHandler}
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
+      <FieldGroup>
+        <div className="flex flex-col items-center gap-1 text-center">
+          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <p className="text-muted-foreground text-sm text-balance">
+            Enter your email below to login to your account
+          </p>
+        </div>
+
+        <Field>
+          <FieldLabel htmlFor="username">Email</FieldLabel>
+          <Input
+            onChange={(e) =>
+              setCrmLogin({ ...crmLogin, username: e.target.value })
+            }
+            id="username"
+            type="text"
+            placeholder="Enter your username"
+            required
+          />
+        </Field>
+
+        <Field>
+          <div className="flex items-center">
+            <FieldLabel htmlFor="password">Password</FieldLabel>
+          </div>
+          <Input
+            onChange={(e) =>
+              setCrmLogin({ ...crmLogin, password: e.target.value })
+            }
+            id="password"
+            type="password"
+            required
+          />
+        </Field>
+
+        <Field>
+          <Button type="submit">Login</Button>
+        </Field>
+        
+      </FieldGroup>
+    </form>
+  );
+}

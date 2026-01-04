@@ -133,15 +133,7 @@ const Navigation = () => {
                       Pet Transport
                     </Link>
                   </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/services/insuranceassistance"
-                      className="flex flex-row items-center gap-2"
-                    >
-                      <ShieldCheck className="w-4 h-4" />
-                      Insurance Assistance
-                    </Link>
-                  </NavigationMenuLink>
+                  
                 </li>
               </ul>
             </NavigationMenuContent>
@@ -267,16 +259,6 @@ const Navigation = () => {
                           className="menu-link flex gap-2 items-center"
                         >
                           <Car className="w-4 h-4" /> Pet Transport
-                        </Link>
-                      </li>
-                      <li className="py-2 border-t">
-                        <Link
-                          href="/insurance"
-                          onClick={() => setMobileOpen(false)}
-                          className="menu-link flex gap-2 items-center"
-                        >
-                          <ShieldCheck className="w-4 h-4" /> Insurance
-                          Assistance
                         </Link>
                       </li>
                     </ul>

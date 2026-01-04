@@ -58,9 +58,6 @@ const Footer = () => {
             <li>
               <Link href="/terms">Terms & Conditions</Link>
             </li>
-            <li>
-              <Link href="/insurance">Insurance</Link>
-            </li>
           </ul>
         </div>
 

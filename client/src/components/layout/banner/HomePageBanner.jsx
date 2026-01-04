@@ -20,6 +20,7 @@ const bannerImages = {
 const formatTitle = (path) => {
   if (path === "/") return "Welcome to Carevra";
   if (path.startsWith("/services/")) return "Our Services";
+  if (path.startsWith("/dashboard")) return "";
 
   return path
     .split("/")

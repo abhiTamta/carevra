@@ -1,5 +1,4 @@
 const connectDB = require("../config/db");
-const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
@@ -9,7 +8,7 @@ exports.adminLogin = async (req, res) => {
     const { username, password } = req.body;
 
     const [rows] = await connection.execute(
-      "SELECT * FROM users WHERE username = ?",
+      "SELECT * FROM admin WHERE username = ?",
       [username]
     );
 

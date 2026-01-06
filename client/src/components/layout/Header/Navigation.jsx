@@ -286,12 +286,12 @@ const Navigation = () => {
             >
               Login
             </Button>
-            <Button
+            <Button onClick={() => window.location.href = '/registration'}
               className={
                 "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
               }
             >
-              Become a Provider
+              Registration
             </Button>
           </div>
         </SheetContent>
@@ -305,12 +305,13 @@ const Navigation = () => {
         >
           Login
         </Button>
-        <Button
+        <Button onClick={() => window.location.href = '/registration'}
+        
           className={
             "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
           }
         >
-          Become a Provider
+          Registration
         </Button>
       </div>
       <Loginform open={open} setOpen={setOpen} />

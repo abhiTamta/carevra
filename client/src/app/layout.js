@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable}  antialiased`}
+        className={`${openSans.variable} antialiased`}
       >
         <Layout />
         {children}

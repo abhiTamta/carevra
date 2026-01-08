@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, User } from "lucide-react";
 import UserRegistration from "./UserRegistration";
+import ProviderRegistration from "./ProviderRegistration";
 
 
 // Dummy components (replace with your real ones)
 const UserRegistrationForm = () => <UserRegistration />;
-const ProviderRegistrationForm = () => <div>Provider Form Component Loaded</div>;
+const ProviderRegistrationForm = () => <ProviderRegistration />;
 
 export const RegisterCard = () => {
   const [activeComponent, setActiveComponent] = useState(null);

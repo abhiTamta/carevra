@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "./Navigation";
 import { PawPrint } from "lucide-react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="w-full bg-gray-100 shadow px-5 py-4 xl:px-0">
       <div className="max-w-7xl mx-auto flex justify-between items-center">

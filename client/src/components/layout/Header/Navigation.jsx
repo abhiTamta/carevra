@@ -38,15 +38,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
-import Loginform from "@/components/login/Loginform";
+import NavUser from "./NavUser";
+import NavButton from "./NavButton";
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [accordionOpen, setAccordionOpen] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
 
   return (
-    <nav className="h-auto flex gap-2">
+    <nav className="h-auto flex items-center gap-2">
       <NavigationMenu className={"hidden md:block"}>
         <NavigationMenuList className="flex-wrap uppercase font-semibold">
           <NavigationMenuItem>
@@ -133,7 +134,6 @@ const Navigation = () => {
                       Pet Transport
                     </Link>
                   </NavigationMenuLink>
-                  
                 </li>
               </ul>
             </NavigationMenuContent>
@@ -270,7 +270,9 @@ const Navigation = () => {
             <li className="border-b px-5 py-2">
               <Link
                 href="/contact"
-                onClick={() => {setMobileOpen(false) }}
+                onClick={() => {
+                  setMobileOpen(false);
+                }}
                 className="font-semibold"
               >
                 Contact Us
@@ -278,43 +280,30 @@ const Navigation = () => {
             </li>
           </ul>
           <div className="px-5 mt-5 flex flex-col gap-2">
-            <Button
-              onClick={() => {setOpen(true),setMobileOpen(false)}}
-              className={
-                "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
-              }
-            >
-              Login
-            </Button>
-            <Button onClick={() => window.location.href = '/registration'}
-              className={
-                "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
-              }
-            >
-              Registration
-            </Button>
+            <Link href="/login">
+              <Button
+                className={
+                  "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
+                }
+              >
+                Login
+              </Button>
+            </Link>
+            <Link href="/registration">
+              <Button
+                className={
+                  "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
+                }
+              >
+                Registration
+              </Button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
       <div className="hidden md:block">
-        <Button
-          onClick={() => setOpen(true)}
-          className={
-            "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
-          }
-        >
-          Login
-        </Button>
-        <Button onClick={() => window.location.href = '/registration'}
-        
-          className={
-            "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
-          }
-        >
-          Registration
-        </Button>
+        {!isUserLoggedIn ? <NavButton /> : <NavUser />}
       </div>
-      <Loginform open={open} setOpen={setOpen} />
     </nav>
   );
 };

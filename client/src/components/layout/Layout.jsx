@@ -10,12 +10,13 @@ const Layout = () => {
   const pathname = usePathname();
 
   const isDashboard = pathname === '/dashboard';
-  const isAuthPage = pathname === '/registration';
+  const isAuthRegister = pathname === '/registration';
+  const isAuthLogin = pathname === '/login';
   return (
     <div>
-      {isDashboard || isAuthPage ? null : <TopHeader />}
-      {isDashboard || isAuthPage ? <Header /> : <Header />}
-      {isDashboard || isAuthPage ? null : <HomePageBanner />}
+      {isDashboard || isAuthRegister || isAuthLogin ? null : <TopHeader />}
+      {isDashboard || isAuthRegister || isAuthLogin ? <Header /> : <Header />}
+      {isDashboard || isAuthRegister || isAuthLogin ? null : <HomePageBanner />}
     </div>
   )
 }

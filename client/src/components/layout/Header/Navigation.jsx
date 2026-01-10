@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,12 +13,12 @@ import {
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { Button } from "../../ui/button";
 import {
   Car,
   Dog,
@@ -38,17 +38,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
-import NavUser from "./NavUser";
+
 import NavButton from "./NavButton";
+import { Button } from "@/components/ui/button";
+import NavUser from "./NavUser";
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [accordionOpen, setAccordionOpen] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <nav className="h-auto flex items-center gap-2">
-      <NavigationMenu className={"hidden md:block"}>
+      <NavigationMenu className={"hidden lg:block"}>
         <NavigationMenuList className="flex-wrap uppercase font-semibold">
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
@@ -144,13 +146,49 @@ const Navigation = () => {
               <Link href="/contact">Contact Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
+
+          <NavigationMenuItem className={`${isLoggedIn ? "hidden" : null}`}>
+            <NavigationMenuLink asChild>
+              <Link href="/login">
+                <Button
+                  className={
+                    "w-full h-auto bg-teal-600 px-5 py-0 leading-9 cursor-pointer font-semibold"
+                  }
+                >
+                  Login
+                </Button>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem className={`${isLoggedIn ? "hidden" : null}`}>
+            <NavigationMenuLink asChild>
+              <Link href="/registration">
+                <Button
+                  className={
+                    "w-full h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
+                  }
+                >
+                  Registration
+                </Button>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem className={`${isLoggedIn ? null : "hidden"}`}>
+            <NavigationMenuLink asChild>
+              <NavUser />
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-        <SheetTrigger className={"block md:hidden"}>
+        <SheetTrigger className={"block lg:hidden"}>
           <Menu className="w-6 h-6" />
         </SheetTrigger>
-
+        {
+          !isLoggedIn ? null : <div className={"block lg:hidden"}><NavUser /></div>
+        }
         <SheetContent>
           <SheetHeader className={"bg-cyan-900 text-inherit"}>
             <SheetTitle className={"text-white uppercase font-bold"}>
@@ -279,31 +317,9 @@ const Navigation = () => {
               </Link>
             </li>
           </ul>
-          <div className="px-5 mt-5 flex flex-col gap-2">
-            <Link href="/login">
-              <Button
-                className={
-                  "h-auto bg-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold"
-                }
-              >
-                Login
-              </Button>
-            </Link>
-            <Link href="/registration">
-              <Button
-                className={
-                  "h-auto bg-transparent border border-teal-600 text-teal-600 px-5 py-0 leading-9 mr-3 cursor-pointer font-semibold hover:bg-teal-600 hover:text-white"
-                }
-              >
-                Registration
-              </Button>
-            </Link>
-          </div>
+          <NavButton isLoggedIn={isLoggedIn} />
         </SheetContent>
       </Sheet>
-      <div className="hidden md:block">
-        {!isUserLoggedIn ? <NavButton /> : <NavUser />}
-      </div>
     </nav>
   );
 };

@@ -6,7 +6,10 @@ const app = express();
 
 // Middlewares
 applySecurity(app);
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000", // frontend
+    credentials: true,               // REQUIRED
+  }));
 app.use(express.json());
 
 // Routes

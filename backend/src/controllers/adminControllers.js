@@ -25,10 +25,16 @@ exports.adminLogin = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, username: user.username, role: user.role },
+      { id: user.user_id, username: user.username, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
+
+    res.cookie("auth_token", token, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: false, // true in production
+    });
 
     res.json({ message: "Login Successful", token });
   } catch (error) {
